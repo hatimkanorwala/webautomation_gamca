@@ -1,0 +1,28 @@
+az storage account create –name gitsstorage –resource-group user-knklefsrtpjn –location WestEurope –sku Standard_LRS –kind StorageV2 –https-only
+
+
+az storage account keys list -g user-knklefsrtpjn -n userslipqtfkjnnq
+
+Wovwme8IBUTOLwdC7PJ0P7NXJNeNMmOFnqOMzKGNO/tvda1lRYMw9VT0pRNjyhdBeZFDDKrWSgxJ7faWIlrPOw==
+
+
+az storage share create
+
+
+az storage directory create  --account-name userslipqtfkjnnq --account-key Wovwme8IBUTOLwdC7PJ0P7NXJNeNMmOFnqOMzKGNO/tvda1lRYMw9VT0pRNjyhdBeZFDDKrWSgxJ7faWIlrPOw==  --share-name azshare  --name "myDirectory"
+
+
+
+az storage file upload \
+    --account-name userslipqtfkjnnq \
+    --account-key Wovwme8IBUTOLwdC7PJ0P7NXJNeNMmOFnqOMzKGNO/tvda1lRYMw9VT0pRNjyhdBeZFDDKrWSgxJ7faWIlrPOw== \
+    --share-name azshare \
+    --source "index.php" \
+    --path "myDirectory/index.php"
+	
+	
+	az storage file delete \
+    --account-name userslipqtfkjnnq \
+    --account-key Wovwme8IBUTOLwdC7PJ0P7NXJNeNMmOFnqOMzKGNO/tvda1lRYMw9VT0pRNjyhdBeZFDDKrWSgxJ7faWIlrPOw== \
+    --share-name azshare \
+    --path "myDirectory/index.php"

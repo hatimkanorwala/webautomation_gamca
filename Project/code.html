@@ -1,0 +1,28 @@
+Lens	Model	power				arrival		used	exchg	returned
+										2
+										
+										
+										
+										
+										doa today
+										last updated 15days+
+
+2+  to 10days 										
+
+
+
+
+
+view -sort by comp, model, power, doa to and fro---------------------------------done
+view -stocking with/ wo expired---------------------------------done
+lens-model-cost mapping --------------------------------done
+to excel---------------------------------done
+date of arrival---------------------------------done
+
+
+
+/*SELECT company,model,power,count(sn) as Used  FROM `inventory` where status='Used' group by company,model,power,status
+*/
+SELECT i.company,i.model,i.power,count(i.sn) as count,i.status  FROM `inventory` as i
+where status='Used'
+group by i.company,i.model,i.power,i.status
