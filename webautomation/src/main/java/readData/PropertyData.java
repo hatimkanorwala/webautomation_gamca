@@ -7,6 +7,7 @@ public class PropertyData {
 	private String dashboardURL;
 	private  String waitSecLogin;
 	private String waitPhotoCrop;
+	private String statusToSearch;
 	private String db;
 	private  String DBURL;
 	private  String DBPort;
@@ -17,6 +18,17 @@ public class PropertyData {
 	private String femaleGender;
 	private String marriedId;
 	private String unmarriedId;
+	private String appUsername;
+	private String appPassword;
+	private String gamcaUsername;
+	private String gamcaPassword;
+	private boolean debug;
+	private String xrayAbNormal;
+	private String malariaPresent;
+	private String microFilariaPresent;
+	private String lftAbnormal;
+	private String serologyDefault;
+
 	
 	public  String getPhotoLocation() {
 		return photoLocation;
@@ -105,6 +117,18 @@ public class PropertyData {
 	public String getMarriedId() {
 		return marriedId;
 	}
+	public String getSerologyDefault() {
+		return serologyDefault;
+	}
+	public void setSerologyDefault(String serologyDefault) {
+		this.serologyDefault = serologyDefault;
+	}
+	public String getXrayAbNormal() {
+		return xrayAbNormal;
+	}
+	public void setXrayAbNormal(String xrayNormal) {
+		this.xrayAbNormal = xrayNormal;
+	}
 	public void setMarriedId(String marriedId) {
 		this.marriedId = marriedId;
 	}
@@ -114,6 +138,64 @@ public class PropertyData {
 	public void setUnmarriedId(String unmarriedId) {
 		this.unmarriedId = unmarriedId;
 	}
+	public String getStatusToSearch() {
+		return statusToSearch;
+	}
+	public void setStatusToSearch(String statusToSearch) {
+		if(statusToSearch.equalsIgnoreCase("new"))
+			this.statusToSearch = "New";
+		else 
+			this.statusToSearch = "All";
+	}
+	public String getAppUsername() {
+		return appUsername;
+	}
+	public void setAppUsername(String appUsername) {
+		this.appUsername = appUsername;
+	}
+	public String getAppPassword() {
+		return appPassword;
+	}
+	public void setAppPassword(String appPassword) {
+		this.appPassword = appPassword;
+	}
+	public String getGamcaUsername() {
+		return gamcaUsername;
+	}
+	public void setGamcaUsername(String gamcaUsername) {
+		this.gamcaUsername = gamcaUsername;
+	}
+	public String getGamcaPassword() {
+		return gamcaPassword;
+	}
+	public void setGamcaPassword(String gamcaPassword) {
+		this.gamcaPassword = gamcaPassword;
+	}
+	public boolean getDebug() {
+		return debug;
+	}
+	public void setDebug(boolean debug) {
+		this.debug = debug;
+	}
+	public String getMalariaPresent() {
+		return malariaPresent;
+	}
+	public void setMalariaPresent(String malariaPresent) {
+		this.malariaPresent = malariaPresent;
+	}
+	public String getMicroFilariaPresent() {
+		return microFilariaPresent;
+	}
+	public void setMicroFilariaPresent(String microFilariaPresent) {
+		this.microFilariaPresent = microFilariaPresent;
+	}
+	public String getLftAbnormal() {
+		return lftAbnormal;
+	}
+	public void setLftAbnormal(String lftAbnormal) {
+		this.lftAbnormal = lftAbnormal;
+	}
+	
 	
 	
 	

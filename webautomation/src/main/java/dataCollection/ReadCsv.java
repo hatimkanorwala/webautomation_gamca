@@ -32,7 +32,7 @@ public class ReadCsv {
 				if (!line.startsWith("#")) {
 					key = line.split(seperator)[0];
 					if(!line.endsWith("=") )
-						value = line.split(seperator)[1];
+						value = line.split(seperator)[1].replace("*", " ");
 					else
 						value = "";
 					switch (key) {
@@ -84,6 +84,43 @@ public class ReadCsv {
 					case "maritalUnMarried":
 						pData.setUnmarriedId(value);
 						break;
+					case "statusToSearch":
+						pData.setStatusToSearch(value);
+						break;
+					case "gamca_username":
+						pData.setGamcaUsername(value);
+						break;
+					case "gamca_password":
+						pData.setGamcaPassword(value);
+						break;
+					case "APPLICATION_USERNAME":
+						pData.setAppUsername(value);
+						break;
+					case "APPLICATION_PASSWORD":
+						pData.setAppPassword(value);
+						break;
+					case "debug":
+						if(value.equalsIgnoreCase("true"))
+							pData.setDebug(true);
+						else
+							pData.setDebug(false);
+						break;
+					case "xrayAbNormal":
+						pData.setXrayAbNormal(value);
+						break;
+					case "malariaPresent":
+						pData.setMalariaPresent(value);
+						break;
+					case "microFilariaPresent":
+						pData.setMicroFilariaPresent(value);
+						break;
+					case "lftAbnormal":
+						pData.setMicroFilariaPresent(value);
+						break;
+					case "serologyDefault":
+						pData.setSerologyDefault(value);
+						break;
+					
 					}
 				}
 

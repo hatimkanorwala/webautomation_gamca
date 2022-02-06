@@ -12,6 +12,7 @@ public class Module1 {
 
 	public WebDriver setPassport(WebDriver driver,String pNo) {
 		WebElement passportNo = driver.findElement(By.id("id_passport"));
+		passportNo.clear();
 		passportNo.sendKeys(pNo);
 		return driver;
 	}

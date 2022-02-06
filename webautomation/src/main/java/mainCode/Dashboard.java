@@ -4,6 +4,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.FillLayout;
 
+import java.awt.TrayIcon.MessageType;
 import java.util.ArrayList;
  
 import org.eclipse.swt.SWT;
@@ -147,6 +148,10 @@ public class Dashboard {
 		table.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				if(driver==null) {
+					new MainBackend().NotifyPopup("Error","Please click login Automation first",MessageType.ERROR);
+					//notifyUser("Please click login Automation first","Error", SWT.ICON_ERROR);
+				}else {
 				//System.out.println("row selected"+table.getItem(table.getSelectionIndex()));
 				TableItem item = table.getItem(table.getSelectionIndex());
 				//System.out.println(item.getText(4));
@@ -156,7 +161,7 @@ public class Dashboard {
 				
 				//Operation.testSelect(driver, getItem(item.getText(2)));
 				Operation.automation(selected,driver);
-				
+				}
 			}
 		});
 		table.setLinesVisible(true);
@@ -198,7 +203,7 @@ public class Dashboard {
 		
 		scrolledComposite.setContent(composite_1);
 		scrolledComposite.setMinSize(composite_1.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-	    GridData scrollGridData = new GridData(SWT.FILL, SWT.FILL, true, true);
+	    //GridData scrollGridData = new GridData(SWT.FILL, SWT.FILL, true, true);
 		
 		
 	    
@@ -219,17 +224,21 @@ public class Dashboard {
 				if(AllData.size()==1) {
 					try {
 						if(AllData.get(0).getHremarks().equals("ERROR")) {
-							notifyUser("Database Connection was Unsuccessful.", "Database Connection",SWT.ICON_ERROR);
+							new MainBackend().NotifyPopup("Database Connection","Database Connection was Unsuccessful.",MessageType.ERROR);
+							//notifyUser("Database Connection was Unsuccessful.", "Database Connection",SWT.ICON_ERROR);
 						}else {
-							notifyUser("Database Connection was Successful.", "Database Connection",SWT.ICON_WORKING);
+							new MainBackend().NotifyPopup("Database Connection","Database Connection was Successful.",MessageType.INFO);
+							//notifyUser("Database Connection was Successful.", "Database Connection",SWT.ICON_WORKING);
 						}
 					}
 					catch(NullPointerException ex) {
-						notifyUser("Database Connection was Successful.", "Database Connection",SWT.ICON_WORKING);
+						new MainBackend().NotifyPopup("Database Connection","Database Connection was Successful.",MessageType.INFO);
+						//notifyUser("Database Connection was Successful.", "Database Connection",SWT.ICON_WORKING);
 					}
 					
 				}else {
-					notifyUser("Database Connection was Successful.", "Database Connection",SWT.ICON_WORKING);
+					new MainBackend().NotifyPopup("Database Connection","Database Connection was Successful.",MessageType.INFO);
+					//notifyUser("Database Connection was Successful.", "Database Connection",SWT.ICON_WORKING);
 				}
 				
 				
@@ -290,11 +299,11 @@ public class Dashboard {
 		return null;
 	}
 	
-	public void notifyUser(String title,String msg, int iconWorking) {
+	public void notifyUser1(String msg,String title, int iconWorking) {
 		//System.out.println("here");
 		MessageBox mb = new MessageBox( shlWebautomationdashboard.getShell(), SWT.OK  | iconWorking );
-	    mb.setMessage( title );
-	    mb.setText( msg );
+	    mb.setMessage( msg );
+	    mb.setText( title );
 	    mb.open();
 	    
 	}

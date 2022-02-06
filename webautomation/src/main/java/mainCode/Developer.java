@@ -1,15 +1,10 @@
 package mainCode;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import javax.swing.JEditorPane;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,7 +17,7 @@ public class Developer extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void devWin() {
+	public void devWin() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
